@@ -1,0 +1,12 @@
+COVID-19 Cough Classification with Machine LearningThis project demonstrates the use of two machine learning classifiers, Naive Bayes and Decision Tree, to classify cough sounds as either COVID-19 positive or negative. The classification is performed on pre-extracted audio features from a dataset of coughs.SetupTo run this code, you will need to have the following files and libraries:Code: The Python script, preferably in a Jupyter notebook environment like Google Colab.Data: The cough_X_features_np.npy and cough_y_features_np.npy files. These files contain the features and labels, respectively, and are expected to be in the specified path within your Google Drive.The code assumes your data files are located at /content/drive/My Drive/Colab Notebooks/Data Sets/COVID-19_Cambridge/. Please adjust this path if your data is stored elsewhere.UsageMount Google Drive: The first section of the code mounts your Google Drive to access the data files.Install Dependencies: All required libraries are standard for machine learning in Python. They are imported at the beginning of the script.Run the Code: Execute the cells sequentially. The script will perform the following steps:Load the data from the .npy files.Split the data into training and testing sets.Scale the data using StandardScaler.Train and evaluate a Naive Bayes classifier.Train and evaluate a Decision Tree classifier.View Results: The script will print the accuracy scores for both the Naive Bayes and Decision Tree classifiers to the console.Code Snippet with ExplanationThis snippet shows the implementation of the Decision Tree classifier, which is used to classify the cough data.# --- Decision Tree Classifier Implementation ---
+print("\n--- Decision Tree Classifier ---")
+# Initializes a Decision Tree classifier. The random_state ensures reproducibility.
+dt_model = DecisionTreeClassifier(random_state=42)
+# Trains the model using the scaled training data.
+dt_model.fit(X_train_scaled, y_train)
+# Predicts the labels for the test data.
+dt_y_pred = dt_model.predict(X_test_scaled)
+# Calculates the accuracy of the model by comparing predicted labels to actual labels.
+dt_accuracy = accuracy_score(y_test, dt_y_pred)
+print(f"Accuracy of the Decision Tree classifier: {dt_accuracy}")
+DependenciesThe project uses the following Python libraries:numpysklearn (including StandardScaler, train_test_split, accuracy_score, GaussianNB, DecisionTreeClassifier)librosapandasIPythonosglobrandomcollections
